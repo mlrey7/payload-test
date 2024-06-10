@@ -28,17 +28,6 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Provide SSH Passphrase
-        env:
-          SSH_PASSPHRASE: ${{ secrets.SSH_PASSPHRASE }}
-        run: |
-          #!/usr/bin/expect -f
-          set timeout -1
-          spawn ssh-add ~/.ssh/id_rsa
-          expect "Enter passphrase for ~/.ssh/id_rsa:"
-          send "$env(SSH_PASSPHRASE)\r"
-          expect eof
-
       - name: Deploy to DigitalOcean
         env:
           HOST: 152.42.240.244
