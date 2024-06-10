@@ -4,7 +4,7 @@ import React from 'react'
 const Page = () => {
   return (
     <div className="text-blue-500 text-lg font-bold">
-      page
+      Auto deployed with Github Actions
       <Button>Click me</Button>
     </div>
   )
